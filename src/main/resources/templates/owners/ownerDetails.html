@@ -19,6 +19,10 @@
         <td th:text="*{address}"></td>
       </tr>
       <tr>
+        <th>ZIP</th>
+        <td th:text="*{zip}"></td>
+      </tr>
+      <tr>
         <th>City</th>
         <td th:text="*{city}"></td>
       </tr>
@@ -28,7 +32,9 @@
       </tr>
     </table>
   
-    <a th:href="@{{id}/edit(id=${owner.id})}" class="btn btn-primary">Edit
+    <a th:href="@{{id}/edit(id=${owner.id})}" class="btn btn-default">Edit
+      Owner</a>
+    <a th:href="@{{id}/delete(id=${owner.id})}" class="btn btn-default">Delete
       Owner</a>
     <a th:href="@{{id}/pets/new(id=${owner.id})}" class="btn btn-primary">Add
       New Pet</a>

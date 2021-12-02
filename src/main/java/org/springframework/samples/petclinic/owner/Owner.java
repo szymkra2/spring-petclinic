@@ -51,6 +51,9 @@ public class Owner extends Person {
 	@NotEmpty
 	private String address;
 
+	@Column(name = "zip")
+	private String zip;
+
 	@Column(name = "city")
 	@NotEmpty
 	private String city;
@@ -60,8 +63,16 @@ public class Owner extends Person {
 	@Digits(fraction = 0, integer = 10)
 	private String telephone;
 
-	@OneToMany(cascade = CascadeType.ALL, mappedBy = "owner", fetch = FetchType.EAGER)
+	@OneToMany(cascade = CascadeType.ALL, mappedBy = "owner", fetch = FetchType.EAGER, orphanRemoval = true)
 	private Set<Pet> pets;
+
+	public String getZip() {
+		return this.zip;
+	}
+
+	public void setZip(String zip) {
+		this.zip = zip;
+	}
 
 	public String getAddress() {
 		return this.address;
